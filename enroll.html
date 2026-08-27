@@ -29,7 +29,7 @@
     --maxw:1160px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; overflow-x:hidden; width:100%;}
   body{
     background:var(--bg); color:var(--ink);
     font-family:'Inter', sans-serif; line-height:1.6;
@@ -468,7 +468,7 @@
   .back-link:hover{ color:var(--ink); }
 
   /* Checkout two-column layout */
-  .checkout-grid{ display:grid; grid-template-columns:1.5fr 1fr; gap:40px; align-items:start; padding:44px 0 100px; }
+  .checkout-grid{ display:grid; grid-template-columns:1.5fr 1fr; gap:40px; align-items:start; padding-top:44px; padding-bottom:100px; }
   .checkout-main{ display:flex; flex-direction:column; gap:36px; }
 
   .step-block{ }
@@ -556,9 +556,9 @@
   }
   .summary-total-row span:first-child{ font-size:13.5px; color:var(--muted); }
   .summary-total-row span:last-child{ font-family:'Fraunces', serif; font-size:26px; font-weight:600; color:var(--ink); }
-  .summary-features{ list-style:none; margin-bottom:20px; }
-  .summary-features li{ display:flex; gap:9px; padding:7px 0; font-size:13.5px; }
-  .summary-trust{ display:flex; gap:8px; align-items:flex-start; font-size:12.5px; color:var(--muted); padding:6px 0; }
+  .summary-features{ list-style:none; margin:0; padding:0; }
+  .summary-features li{ display:flex; align-items:center; gap:9px; padding:6px 0; font-size:13.5px; }
+  .summary-trust{ display:flex; align-items:center; gap:9px; font-size:13.5px; color:var(--muted); padding:6px 0; white-space:nowrap; }
 
   /* Sticky mobile bottom bar */
   .checkout-sticky-bar{
@@ -571,7 +571,7 @@
   .csb-btn{ background:var(--ink); color:#fff; font-weight:600; font-size:13.5px; padding:11px 20px; border-radius:8px; white-space:nowrap; }
 
   @media(max-width:960px){
-    .checkout-grid{ grid-template-columns:1fr; padding-bottom:100px; }
+    .checkout-grid{ grid-template-columns:1fr; padding-bottom:100px; gap:32px; }
     .checkout-summary{ position:static; order:-1; }
     .checkout-sticky-bar{ display:block; }
   }
@@ -579,6 +579,23 @@
     .field-row{ grid-template-columns:1fr; gap:0; }
     .step-head{ gap:12px; }
     .summary-card{ padding:22px; }
+    .checkout-grid{ padding-top:28px; padding-bottom:92px; gap:26px; }
+    .enroll-hero{ padding:40px 0 32px; }
+    .eh-ticker{ padding:8px 0; }
+    .eh-ticker-track{ gap:26px; }
+    .eh-ticker-track span{ font-size:11px; }
+    .eh-badges{ gap:8px; margin-top:20px; }
+    .eh-badge{ font-size:11px; padding:7px 12px; }
+    .pm-tabs{ gap:8px; }
+    .pm-tab{ min-width:0; padding:11px 10px; font-size:12.5px; }
+    .step-num{ width:30px; height:30px; font-size:13px; }
+    .step-head h2{ font-size:18px; }
+    .file-upload{ padding:18px 14px; }
+    .whatsapp-btn{ padding:14px 20px; font-size:14px; }
+  }
+  @media(max-width:360px){
+    .eh-badges{ flex-direction:column; align-items:center; }
+    .pm-tabs{ flex-direction:column; }
   }
 
 </style>
@@ -789,8 +806,8 @@
           <li>♾️ Lifetime access to recordings</li>
         </ul>
 
-        <div class="summary-trust">🔒 Manual payment verification · access within 24 hours</div>
-        <div class="summary-trust">🛡️ 7-day money-back guarantee, no questions asked</div>
+        <div class="summary-trust">🔒 Manually verified within 24 hours</div>
+        <div class="summary-trust">🛡️ 7-day money-back guarantee</div>
       </div>
     </aside>
 

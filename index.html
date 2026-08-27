@@ -68,7 +68,7 @@
     --maxw:1160px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; overflow-x:hidden; width:100%;}
   body{
     background:var(--bg); color:var(--ink);
     font-family:'Inter', sans-serif; line-height:1.6;
@@ -101,7 +101,7 @@
   @media(max-width:780px){ .nav-links{ display:none; } }
 
   /* ===== HERO ===== */
-  .hero{ padding:60px 0 40px; }
+  .hero{ padding:60px 0 40px; position:relative; overflow:hidden; }
   .hero-brand-badge{
     display:inline-flex; align-items:center; gap:8px; background:var(--ink); color:#fff;
     font-family:'JetBrains Mono', monospace; font-size:12px; font-weight:600; letter-spacing:.05em;
@@ -476,11 +476,11 @@
     content:''; position:absolute; top:23px; left:9%; right:9%; height:2px;
     background:repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 14px); z-index:0;
   }
-  .hiw-step{ position:relative; z-index:1; padding:0 12px; text-align:left; }
+  .hiw-step{ position:relative; z-index:1; padding:0 12px; text-align:center; }
   .hiw-num{
     width:46px; height:46px; border-radius:50%; background:var(--coral); color:#fff;
     display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono', monospace;
-    font-size:16px; font-weight:600; margin-bottom:16px;
+    font-size:16px; font-weight:600; margin:0 auto 16px;
   }
   .hiw-step h4{ font-family:'Fraunces', serif; font-size:16px; margin-bottom:8px; }
   .hiw-step p{ font-size:13.5px; color:var(--muted); }
@@ -537,6 +537,8 @@
   @media(max-width:900px){
     .consult-grid{ grid-template-columns:1fr; }
     .consult-photo-wrap{ margin-bottom:40px; }
+    .consult-copy .eyebrow{ justify-content:center; }
+    .consult-copy h2{ text-align:center; }
   }
   @media(max-width:560px){
     .consult-bottom-row{ flex-direction:column; align-items:stretch; text-align:center; }
@@ -709,12 +711,6 @@
       <div class="intro-kicker">Meet the Founder</div>
       <h2>Hi, I'm Sufian Ahmad — I built this to teach it <em>the practical way</em>.</h2>
       <p>No fluff, no recycled theory — just Facebook Ads and Shopify, taught the way they're actually used to run a real online business. Everything in this course comes from what genuinely works, and I teach every Live 1-on-1 session myself.</p>
-      <div class="intro-tags">
-        <span class="intro-tag">Facebook Ads Strategy</span>
-        <span class="intro-tag">Shopify Store Setup</span>
-        <span class="intro-tag">Pixel &amp; Conversion Tracking</span>
-        <span class="intro-tag">Ad Creative &amp; Copywriting</span>
-      </div>
       <a href="https://wa.me/923004540431" target="_blank" rel="noopener" class="btn btn-ghost">Ask Me a Question</a>
     </div>
   </div>
@@ -915,10 +911,10 @@
       <h2>Book a 1-on-1 Facebook Ads &amp; Shopify Consultation</h2>
       <p>Get on a personal call with Sufian directly — ask your questions, talk through your business, and walk away with a clear plan.</p>
       <ul class="consult-list">
-        <li>45-minute 1-on-1 strategy call via WhatsApp</li>
-        <li>Talk through your Facebook Ads and Shopify store</li>
-        <li>A custom, step-by-step growth plan for your business</li>
-        <li>Direct Q&amp;A with Sufian Ahmad, no middlemen</li>
+        <li>45-min 1-on-1 strategy call</li>
+        <li>Facebook Ads &amp; Shopify guidance</li>
+        <li>Custom step-by-step growth plan</li>
+        <li>Direct Q&amp;A with Sufian Ahmad</li>
       </ul>
       <div class="consult-bottom-row">
         <div>

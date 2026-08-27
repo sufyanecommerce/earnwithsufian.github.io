@@ -27,7 +27,7 @@
     --maxw:1160px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; overflow-x:hidden; width:100%;}
   body{
     background:var(--bg); color:var(--ink);
     font-family:'Inter', sans-serif; line-height:1.6;
@@ -411,8 +411,17 @@
   }
   .ty-card h1{ font-size:clamp(26px,3.4vw,34px); margin-bottom:14px; }
   .ty-card p{ color:var(--muted); font-size:15.5px; margin-bottom:8px; }
-  .ty-steps{ text-align:left; background:var(--bg-2); border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin:26px 0; }
-  .ty-steps li{ font-size:14px; color:var(--ink); padding:6px 0; }
+  .ty-steps{ text-align:left; background:var(--bg-2); border:1px solid var(--line); border-radius:14px; padding:8px 22px; margin:26px 0; }
+  .ty-step-row{ display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); }
+  .ty-step-row:last-child{ border-bottom:none; }
+  .ty-step-icon{
+    width:34px; height:34px; border-radius:50%; flex-shrink:0; font-size:15px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .ty-step-row:nth-child(1) .ty-step-icon{ background:rgba(47,143,78,0.14); }
+  .ty-step-row:nth-child(2) .ty-step-icon{ background:rgba(27,59,111,0.10); }
+  .ty-step-row:nth-child(3) .ty-step-icon{ background:rgba(255,90,54,0.12); }
+  .ty-step-row span:last-child{ font-size:14px; color:var(--ink); font-weight:500; text-align:left; }
   .ty-btns{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px; }
 
 </style>
@@ -434,11 +443,9 @@
     <p>We'll manually verify your payment and get you access within 24 hours.</p>
 
     <div class="ty-steps">
-      <ul style="list-style:none;">
-        <li>✅ Your enrollment form was submitted successfully</li>
-        <li>🔍 Our team will verify your payment</li>
-        <li>📩 You'll receive your access details by email/WhatsApp within 24 hours</li>
-      </ul>
+      <div class="ty-step-row"><span class="ty-step-icon">✅</span><span>Enrollment form submitted successfully</span></div>
+      <div class="ty-step-row"><span class="ty-step-icon">🔍</span><span>Our team is verifying your payment</span></div>
+      <div class="ty-step-row"><span class="ty-step-icon">📩</span><span>Access details arrive within 24 hours</span></div>
     </div>
 
     <div class="ty-btns">
