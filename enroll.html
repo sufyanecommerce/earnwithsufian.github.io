@@ -728,7 +728,7 @@
           <input type="hidden" name="_subject" value="New Enrollment — Sufyan Academy">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="thank-you.html">
+          <input type="hidden" name="_next" value="https://sufyanacademy.com/thank-you.html">
           <input type="hidden" name="Package" id="hidden-package" value="Recorded Course (Rs 10,000)">
 
           <div class="field">
@@ -768,7 +768,8 @@
             <div class="field-note">This gets attached and sent straight to our email along with your details.</div>
           </div>
 
-          <button type="submit" class="btn whatsapp-btn" id="submit-enroll-btn">Submit Enrollment →</button>
+          <button type="button" class="btn whatsapp-btn" id="submit-enroll-btn">Submit Enrollment →</button>
+          <div id="form-status" style="text-align:center; font-size:13.5px; margin-top:12px; min-height:20px; font-weight:600;"></div>
           <div class="form-privacy"><span>🔒</span>Your details are used only to verify your enrollment</div>
           <div class="alt-contact">Having trouble? Email us directly at <a href="mailto:ecomspro.info@gmail.com" style="color:var(--navy); font-weight:600;">ecomspro.info@gmail.com</a></div>
         </form>
@@ -925,19 +926,6 @@
     });
   });
 
-  // File upload — show selected filename (visual only, no server to receive it)
-  document.getElementById('f-screenshot').addEventListener('change', (e)=>{
-    const box = document.getElementById('file-upload-box');
-    const label = document.getElementById('fu-text');
-    if(e.target.files && e.target.files[0]){
-      label.textContent = '✓ ' + e.target.files[0].name;
-      box.classList.add('has-file');
-    } else {
-      label.textContent = 'Click to upload screenshot';
-      box.classList.remove('has-file');
-    }
-  });
-
   // File upload — show selected filename
   document.getElementById('f-screenshot').addEventListener('change', (e)=>{
     const box = document.getElementById('file-upload-box');
@@ -958,6 +946,57 @@
   }
   document.querySelectorAll('input[name="plan"]').forEach(el=> el.addEventListener('change', syncHiddenPackage));
   syncHiddenPackage();
+
+  // ===== Submit the enrollment form via AJAX (fetch) =====
+  const enrollForm = document.getElementById('enroll-form');
+  const submitBtn = document.getElementById('submit-enroll-btn');
+  const statusEl = document.getElementById('form-status');
+
+  async function submitEnrollment(){
+    if(!enrollForm.reportValidity()){
+      return; // shows native "please fill this field" prompts
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    statusEl.style.color = 'var(--muted)';
+    statusEl.textContent = 'Uploading your details and screenshot…';
+
+    const formData = new FormData(enrollForm);
+
+    try{
+      const res = await fetch(enrollForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if(res.ok){
+        statusEl.style.color = 'var(--green)';
+        statusEl.textContent = '✓ Submitted! Redirecting…';
+        setTimeout(()=>{ window.location.href = 'thank-you.html'; }, 900);
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Enrollment →';
+        statusEl.style.color = 'var(--coral-dim)';
+        statusEl.textContent = 'Something went wrong. Please try again or message us on WhatsApp.';
+      }
+    } catch(err){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Enrollment →';
+      statusEl.style.color = 'var(--coral-dim)';
+      statusEl.textContent = 'Network error. Please check your connection and try again.';
+    }
+  }
+
+  // Trigger on button click
+  submitBtn.addEventListener('click', submitEnrollment);
+
+  // Also catch Enter-key submissions (native form submit) so they never bypass AJAX
+  enrollForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    submitEnrollment();
+  });
 </script>
 
 </body>
