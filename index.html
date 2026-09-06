@@ -170,6 +170,10 @@
   .hero h1 em{ font-style:italic; color:var(--coral); }
   .hero p.lead{ font-size:18px; color:var(--muted); max-width:480px; margin-bottom:34px; }
   .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px; }
+  @media(min-width:901px){
+    .hero p.lead{ margin-bottom:22px; }
+    .hero-ctas{ margin-bottom:24px; }
+  }
   .btn{ display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:15px; padding:15px 26px; border-radius:9px; border:1.5px solid transparent; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease; }
   .btn-primary{ background:var(--ink); color:#fff; }
   .btn-white{ background:#fff; color:var(--ink); }
