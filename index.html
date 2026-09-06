@@ -466,9 +466,36 @@
   .faq-a p{ padding-bottom:22px; color:var(--muted); font-size:14.5px; max-width:640px; }
 
   /* ===== FINAL CTA ===== */
-  .final-cta{ text-align:center; padding:72px 0; background:var(--bg-2); }
-  .final-cta h2{ font-size:clamp(28px,3.8vw,44px); margin-bottom:20px; }
-  .final-cta p{ color:var(--muted); margin-bottom:34px; }
+  .final-cta{
+    text-align:center; padding:90px 0; background:linear-gradient(160deg, var(--navy), #0F2347);
+    position:relative; overflow:hidden;
+  }
+  .final-cta::before{
+    content:''; position:absolute; top:-140px; left:-100px; width:380px; height:380px; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,90,54,0.18), transparent 70%); pointer-events:none;
+  }
+  .final-cta::after{
+    content:''; position:absolute; bottom:-160px; right:-120px; width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%); pointer-events:none;
+  }
+  .final-cta .wrap{ position:relative; z-index:1; }
+  .final-eyebrow{
+    display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+    color:#FF9A80; font-family:'JetBrains Mono', monospace; font-size:12px; font-weight:600; letter-spacing:.04em;
+    padding:8px 16px; border-radius:30px; margin-bottom:22px;
+  }
+  .final-cta h2{ font-size:clamp(30px,4vw,46px); margin-bottom:16px; color:#fff; }
+  .final-cta h2 em{ font-style:italic; color:#FF9A80; }
+  .final-cta p{ color:#C7CBD6; margin-bottom:8px; font-size:16px; }
+  .final-features{ display:flex; justify-content:center; flex-wrap:wrap; gap:24px; margin:28px 0 36px; }
+  .final-feature{ display:flex; align-items:center; gap:8px; font-size:13.5px; color:#E4E7EF; }
+  .final-feature .ff-check{ color:#42E28C; font-weight:700; }
+  .final-btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .final-btns .btn-primary{ background:var(--coral); box-shadow:0 14px 30px rgba(255,90,54,0.35); }
+  .final-btns .btn-primary:hover{ background:#FF8A6E; }
+  .final-btns .btn-ghost{ border-color:rgba(255,255,255,0.3); color:#fff; }
+  .final-btns .btn-ghost:hover{ border-color:#fff; }
+  .final-urgency{ margin-top:22px; font-family:'JetBrains Mono', monospace; font-size:12px; color:#8B93A7; }
   .final-btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
 
   footer{ border-top:1px solid var(--line); padding:38px 0 90px; }
@@ -1073,12 +1100,19 @@
 
 <section class="final-cta">
   <div class="wrap">
-    <h2>Start Your Online Business Today</h2>
+    <div class="final-eyebrow">🚀 Ready to Start?</div>
+    <h2>Start Your Online Business <em>Today</em></h2>
     <p>Learn Facebook Ads and Shopify store building — both skills, in one place.</p>
+    <div class="final-features">
+      <div class="final-feature"><span class="ff-check">✓</span>13 Modules Each</div>
+      <div class="final-feature"><span class="ff-check">✓</span>7-Day Money-Back Guarantee</div>
+      <div class="final-feature"><span class="ff-check">✓</span>Direct WhatsApp Support</div>
+    </div>
     <div class="final-btns">
       <a href="enroll.html" class="btn btn-primary">Enroll Now</a>
       <a href="https://wa.me/923004540431" target="_blank" rel="noopener" class="btn btn-ghost">Chat on WhatsApp</a>
     </div>
+    <div class="final-urgency">🔥 Only 20 seats available this batch</div>
   </div>
 </section>
 
