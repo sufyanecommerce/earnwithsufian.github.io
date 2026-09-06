@@ -235,13 +235,11 @@
   .trust-item .lbl{ font-size:11.5px; color:var(--muted-2); }
   .trust-item > div{ display:flex; flex-direction:column; }
 
-  /* ===== MOBILE: trust-row + urgency-strip → minimal scrollable chip strip ===== */
+  /* ===== MOBILE: trust-row + urgency-strip → wrapping chip strip (no scroll) ===== */
   @media(max-width:680px){
     .trust-row, .urgency-strip{
-      display:flex; flex-wrap:nowrap; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
-      scrollbar-width:none; background:none; border:none; padding:0 0 4px;
+      display:flex; flex-wrap:wrap; gap:8px; background:none; border:none; padding:0;
     }
-    .trust-row::-webkit-scrollbar, .urgency-strip::-webkit-scrollbar{ display:none; }
     .urgency-strip{ margin-top:14px; }
 
     .trust-item{
@@ -310,7 +308,7 @@
   .dash-stat:nth-child(2){ border-left-color:var(--navy); }
   .dash-stat:nth-child(3){ border-left-color:var(--green); }
   .dash-stat .ds-lbl{ font-size:10px; color:var(--muted-2); text-transform:uppercase; letter-spacing:.03em; margin-bottom:5px; }
-  .dash-stat .ds-val{ font-family:'JetBrains Mono', monospace; font-size:16px; font-weight:700; color:var(--ink); }
+  .dash-stat .ds-val{ font-family:'JetBrains Mono', monospace; font-size:16px; font-weight:700; color:var(--ink); white-space:nowrap; }
   .dash-stat .ds-trend{ display:inline-flex; align-items:center; gap:2px; font-family:'JetBrains Mono', monospace; font-size:10px; font-weight:600; color:var(--green); margin-top:4px; background:rgba(47,143,78,0.1); padding:2px 6px; border-radius:10px; }
   .dash-chart-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
   .dash-chart-head span:first-child{ font-size:12.5px; font-weight:600; color:var(--ink); }
@@ -348,7 +346,7 @@
     .dash:hover .dash-card{ transform:none; box-shadow:0 14px 28px rgba(20,25,15,0.12); }
   }
   @media(max-width:900px){ .dash-float{ display:none; } }
-  @media(max-width:480px){ .dash-stats{ gap:7px; } .dash-stat{ padding:8px 9px; } }
+  @media(max-width:480px){ .dash-stats{ gap:7px; } .dash-stat{ padding:8px 9px; } .dash-stat .ds-val{ font-size:13.5px; } }
 
   /* ===== SECTION HEAD ===== */
   .section-head{ max-width:640px; margin-bottom:32px; }
