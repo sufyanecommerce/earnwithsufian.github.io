@@ -307,6 +307,16 @@
   .section-head{ max-width:640px; margin-bottom:32px; }
   .section-head h2{ font-size:clamp(28px,3.6vw,42px); margin-bottom:16px; }
   .section-head p{ color:var(--muted); font-size:16.5px; }
+  .pricing-eyebrow-pill{
+    display:inline-flex; align-items:center; gap:8px; background:linear-gradient(90deg, rgba(255,90,54,0.14), rgba(27,59,111,0.10));
+    border:1px solid rgba(255,90,54,0.3); color:var(--coral-dim); font-family:'JetBrains Mono', monospace;
+    font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:8px 18px; border-radius:30px;
+    margin-bottom:18px;
+  }
+  .pricing-gradient-text{
+    background:linear-gradient(90deg, var(--coral), var(--navy)); -webkit-background-clip:text; background-clip:text;
+    color:transparent;
+  }
   .bg-soft{ background:var(--bg-2); }
 
   /* ===== CURRICULUM ===== */
@@ -708,10 +718,33 @@
   @media(max-width:700px){ .guarantee-grid{ flex-direction:column; text-align:center; } .guarantee-trust{ justify-content:center; } }
 
   /* ===== SEATS LEFT BAR (pricing) ===== */
-  .seats-bar{ max-width:640px; margin:0 auto 40px; }
-  .seats-bar .s-top{ display:flex; justify-content:space-between; font-size:13px; color:var(--muted); margin-bottom:8px; font-family:'JetBrains Mono', monospace; }
-  .seats-bar .s-track{ height:8px; background:var(--bg-3); border-radius:20px; overflow:hidden; }
-  .seats-bar .s-fill{ height:100%; width:65%; background:var(--coral); border-radius:20px; }
+  .seats-bar{
+    max-width:640px; margin:0 auto 40px;
+    background:linear-gradient(120deg, rgba(255,90,54,0.06), rgba(27,59,111,0.05));
+    border:1.5px solid rgba(255,90,54,0.2); border-radius:16px;
+    padding:20px 24px; box-shadow:0 16px 34px rgba(20,25,15,0.06);
+  }
+  .seats-bar .s-top{ display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:var(--muted); margin-bottom:12px; font-family:'JetBrains Mono', monospace; flex-wrap:wrap; gap:6px; }
+  .seats-bar .s-top .s-label{ display:flex; align-items:center; gap:7px; color:var(--coral-dim); font-weight:700; letter-spacing:.02em; }
+  .seats-bar .s-top .s-count{ font-weight:700; color:var(--navy); font-size:13.5px; background:rgba(27,59,111,0.08); padding:3px 10px; border-radius:20px; }
+  .seats-bar .s-top .s-label .s-icon{
+    width:20px; height:20px; border-radius:50%; background:rgba(255,90,54,0.15); display:inline-flex;
+    align-items:center; justify-content:center; font-size:11px;
+  }
+  .seats-bar .s-track{ height:10px; background:var(--bg-3); border-radius:20px; overflow:hidden; position:relative; }
+  .seats-bar .s-fill{
+    height:100%; width:65%; background:linear-gradient(90deg, var(--coral), #FF8A6E); border-radius:20px;
+    position:relative; overflow:hidden;
+  }
+  .seats-bar .s-fill::after{
+    content:''; position:absolute; inset:0; background:linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+    transform:translateX(-100%); animation:seatsShine 2.6s ease-in-out infinite;
+  }
+  @keyframes seatsShine{ 0%{ transform:translateX(-100%); } 60%,100%{ transform:translateX(180%); } }
+  @media(max-width:480px){
+    .seats-bar{ padding:16px 18px; }
+    .seats-bar .s-top{ font-size:11.5px; }
+  }
 
   /* ===== STICKY CTA BAR ===== */
   .sticky-cta{
@@ -994,12 +1027,12 @@
 <section id="pricing" class="bg-soft">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Pricing</div>
-      <h2>Choose How You Want to Learn</h2>
+      <div class="pricing-eyebrow-pill">💰 Pricing</div>
+      <h2>Choose How You Want to <span class="pricing-gradient-text">Learn</span></h2>
       <p>Learn at your own pace, or get direct 1-on-1 mentorship. Both options cover the full curriculum.</p>
     </div>
     <div class="seats-bar">
-      <div class="s-top"><span>SEATS FILLING — THIS BATCH</span><span id="seats-text">13 / 20 taken</span></div>
+      <div class="s-top"><span class="s-label"><span class="s-icon">🔥</span>Seats Filling — This Batch</span><span class="s-count" id="seats-text">13 / 20 taken</span></div>
       <div class="s-track"><div class="s-fill"></div></div>
     </div>
 
