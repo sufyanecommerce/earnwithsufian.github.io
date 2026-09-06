@@ -114,9 +114,13 @@
 
   /* ===== FOUNDER INTRO (right after hero) ===== */
   .intro-band{ background:var(--bg-2); padding:48px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .intro-grid{ display:grid; grid-template-columns:0.75fr 1.25fr; gap:56px; align-items:center; }
+  .intro-grid{
+    display:grid; grid-template-columns:0.75fr 1.25fr; grid-template-rows:auto auto; gap:16px 56px;
+    grid-template-areas:"photo text" "photo cta"; align-items:start;
+  }
+  .intro-cta{ grid-area:cta; }
 
-  .intro-photo-wrap{ position:relative; max-width:320px; margin:0 auto; }
+  .intro-photo-wrap{ grid-area:photo; position:relative; max-width:320px; margin:0 auto; align-self:center; }
   .intro-photo{
     width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:20px;
     box-shadow:0 30px 60px rgba(20,25,15,0.16);
@@ -133,6 +137,7 @@
   .intro-tag-card .itc-role{ font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted-2); margin-bottom:3px; }
   .intro-tag-card .itc-name{ font-family:'Fraunces', serif; font-weight:600; font-size:16px; color:var(--ink); }
 
+  .intro-copy{ grid-area:text; }
   .intro-copy .intro-kicker{
     font-family:'JetBrains Mono', monospace; font-size:13.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
     color:var(--coral-dim); margin-bottom:10px; display:flex; align-items:center; gap:9px;
@@ -153,11 +158,17 @@
     font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--navy);
     background:#fff; border:1px solid var(--line); padding:8px 14px; border-radius:20px;
   }
+  .intro-ask-btn{
+    display:inline-flex; align-items:center; gap:9px; background:#25D366; color:#fff; font-weight:600;
+    font-size:14.5px; padding:13px 24px; border-radius:9px; box-shadow:0 12px 26px rgba(37,211,102,0.3);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .intro-ask-btn:hover{ transform:translateY(-2px); box-shadow:0 16px 32px rgba(37,211,102,0.4); }
   @media(max-width:900px){
     .intro-band{ padding:40px 0; }
-    .intro-grid{ grid-template-columns:1fr; gap:0; }
-    .intro-copy{ order:-1; }
-    .intro-photo-wrap{ margin-top:32px; }
+    .intro-grid{ grid-template-columns:1fr; grid-template-rows:auto auto auto; grid-template-areas:"text" "photo" "cta"; gap:0; }
+    .intro-photo-wrap{ margin:28px auto; }
+    .intro-cta{ text-align:center; margin-top:28px; }
   }
   @media(max-width:640px){
     .intro-tags{ justify-content:center; }
@@ -573,13 +584,17 @@
   .wcu-card h4{ font-family:'Fraunces', serif; font-size:17px; margin-bottom:8px; }
   .wcu-card p{ font-size:13.5px; color:var(--muted); }
   @media(max-width:900px){ .wcu-grid{ grid-template-columns:1fr 1fr; } }
-  @media(max-width:560px){ .wcu-grid{ grid-template-columns:1fr; } }
+  @media(max-width:560px){ .wcu-grid{ grid-template-columns:1fr; } .wcu-card{ text-align:center; } .wcu-icon{ margin-left:auto; margin-right:auto; } }
 
   /* ===== CONSULT CALL SECTION ===== */
   .consult-band{ background:var(--navy); padding:52px 0; }
-  .consult-grid{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px; align-items:center; }
+  .consult-grid{
+    display:grid; grid-template-columns:0.8fr 1.2fr; grid-template-rows:auto 1fr; gap:16px 56px;
+    grid-template-areas:"photo heading" "photo rest"; align-items:start;
+  }
+  .consult-heading{ grid-area:heading; align-self:end; }
 
-  .consult-photo-wrap{ position:relative; max-width:340px; margin:0 auto; }
+  .consult-photo-wrap{ grid-area:photo; position:relative; max-width:340px; margin:0 auto; align-self:center; }
   .consult-photo{ width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:18px; box-shadow:0 30px 60px rgba(0,0,0,0.35); }
   .consult-badge{
     position:absolute; top:18px; left:-14px; background:var(--coral); color:#fff; font-family:'JetBrains Mono', monospace;
@@ -593,10 +608,10 @@
   .consult-tag .ct-role{ font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted-2); margin-bottom:3px; }
   .consult-tag .ct-name{ font-family:'Fraunces', serif; font-weight:600; font-size:15.5px; color:var(--ink); }
 
-  .consult-copy .eyebrow{ color:#FF9A80; }
-  .consult-copy .eyebrow::before{ background:#FF9A80; }
-  .consult-copy h2{ color:#fff; font-size:clamp(26px,3.4vw,36px); margin-bottom:16px; }
-  .consult-copy > p{ color:#C7CBD6; font-size:15px; max-width:480px; margin-bottom:28px; }
+  .consult-heading .eyebrow{ color:#FF9A80; }
+  .consult-heading .eyebrow::before{ background:#FF9A80; }
+  .consult-heading h2{ color:#fff; font-size:clamp(26px,3.4vw,36px); margin-bottom:0; }
+  .consult-rest > p{ color:#C7CBD6; font-size:15px; max-width:480px; margin-bottom:28px; margin-top:16px; }
 
   .consult-list{ list-style:none; margin-bottom:32px; }
   .consult-list li{ display:flex; align-items:flex-start; gap:10px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-size:14.5px; color:#E4E7EF; }
@@ -608,10 +623,11 @@
   .consult-invest-price{ font-family:'Fraunces', serif; font-size:30px; font-weight:600; color:#fff; }
 
   @media(max-width:900px){
-    .consult-grid{ grid-template-columns:1fr; }
-    .consult-photo-wrap{ margin-bottom:40px; }
-    .consult-copy .eyebrow{ justify-content:center; }
-    .consult-copy h2{ text-align:center; }
+    .consult-grid{ grid-template-columns:1fr; grid-template-rows:auto auto auto; grid-template-areas:"heading" "photo" "rest"; gap:0; }
+    .consult-heading{ margin-bottom:28px; }
+    .consult-photo-wrap{ margin-bottom:28px; }
+    .consult-heading .eyebrow{ justify-content:center; }
+    .consult-heading h2{ text-align:center; }
   }
   @media(max-width:560px){
     .consult-bottom-row{ flex-direction:column; align-items:stretch; text-align:center; }
@@ -802,7 +818,10 @@
         <p>I teach the <strong>secret Facebook Ads, digital marketing, and ecommerce strategies</strong> that genuinely work — not recycled theory, but what's actually working right now.</p>
       </div>
       <p>No fluff, no recycled theory — just Facebook Ads and Shopify, taught the way they're actually used to run a real online business. Everything in this course comes from what genuinely works, and I teach every Live 1-on-1 session myself.</p>
-      <a href="https://wa.me/923004540431" target="_blank" rel="noopener" class="btn btn-ghost">Ask Me a Question</a>
+    </div>
+
+    <div class="intro-cta">
+      <a href="https://wa.me/923004540431" target="_blank" rel="noopener" class="intro-ask-btn">💬 Ask Me a Question</a>
     </div>
   </div>
 </div>
@@ -894,7 +913,7 @@
 <div class="band">
   <div class="wrap band-grid">
     <div class="band-item"><div class="num">2-in-1</div><div class="lbl">Ads + Store, Together</div></div>
-    <div class="band-item"><div class="num">Step-by-Step</div><div class="lbl">Beginner-Friendly</div></div>
+    <div class="band-item"><div class="num">Easy</div><div class="lbl">Beginner-Friendly</div></div>
     <div class="band-item"><div class="num">Rs 10k</div><div class="lbl">Recorded Course</div></div>
     <div class="band-item"><div class="num">Rs 20k</div><div class="lbl">Live 1-on-1 Zoom</div></div>
   </div>
@@ -1003,9 +1022,12 @@
       </div>
     </div>
 
-    <div class="consult-copy">
+    <div class="consult-heading">
       <div class="eyebrow">One-to-One</div>
       <h2>Book a 1-on-1 Facebook Ads &amp; Shopify Consultation</h2>
+    </div>
+
+    <div class="consult-rest">
       <p>Get on a personal call with Sufian directly — ask your questions, talk through your business, and walk away with a clear plan.</p>
       <ul class="consult-list">
         <li>45-min 1-on-1 strategy call</li>
