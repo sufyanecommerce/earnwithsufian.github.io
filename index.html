@@ -309,9 +309,10 @@
     display:flex; align-items:flex-start; gap:10px; font-size:13px; font-weight:600; line-height:1.4;
     margin:-6px 0 18px 0; padding:12px 14px; border-radius:10px;
   }
-  .curric-card.fb .curric-secret{ background:rgba(255,90,54,0.08); border:1px solid rgba(255,90,54,0.25); color:var(--coral-dim); }
-  .curric-card.shop .curric-secret{ background:rgba(27,59,111,0.06); border:1px solid rgba(27,59,111,0.2); color:var(--navy); }
+  .curric-card.fb .curric-secret{ background:linear-gradient(135deg, rgba(255,90,54,0.12), rgba(255,138,110,0.06)); border:1px solid rgba(255,90,54,0.3); color:var(--coral-dim); }
+  .curric-card.shop .curric-secret{ background:linear-gradient(135deg, rgba(27,59,111,0.10), rgba(47,90,158,0.05)); border:1px solid rgba(27,59,111,0.28); color:var(--navy); }
   .curric-secret .cs-icon{ flex-shrink:0; font-size:15px; }
+  .curric-secret + .curric-secret{ margin-top:10px; }
   .curric-group{ margin-bottom:6px; }
   .curric-group-label{
     display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono', monospace; font-size:10.5px;
@@ -781,8 +782,8 @@
     <div class="curric-grid">
       <div class="curric-card fb">
         <div class="c-head"><div class="c-icon coral">FB</div><h3>Facebook Ads — Every Topic Covered</h3></div>
-        <div class="curric-count">🔥 11 Modules</div>
-        <div class="curric-secret"><span class="cs-icon">🔐</span>Includes secret Facebook Ads strategies you will not find anywhere else</div>
+        <div class="curric-count">🔥 13 Modules</div>
+        <div class="curric-secret"><span class="cs-icon">🔓</span>Unlock Facebook Ads secret strategies, nobody else teaches</div>
 
         <div class="curric-group">
           <div class="curric-group-label">Foundations</div>
@@ -791,6 +792,7 @@
             <li><span class="curric-icon">📍</span><div><div class="curric-title">Pixel Install &amp; Tracking</div><div class="curric-sub">A tracker on your site that tells Facebook who's interested</div></div></li>
             <li><span class="curric-icon">🎯</span><div><div class="curric-title">Audience Research &amp; Targeting</div><div class="curric-sub">Finding the right people to show your ads to</div></div></li>
             <li><span class="curric-icon">🔁</span><div><div class="curric-title">Retargeting &amp; Lookalike Audiences</div><div class="curric-sub">Re-showing ads to interested visitors, and finding more like them</div></div></li>
+            <li><span class="curric-icon">🚨</span><div><div class="curric-title">Meta's Latest Algorithm Updates (Andromeda)</div><div class="curric-sub">Staying current with how Facebook's ad system actually works right now</div></div></li>
           </ul>
         </div>
 
@@ -799,6 +801,7 @@
           <ul class="curric-list">
             <li><span class="curric-icon">🧱</span><div><div class="curric-title">Campaign Structure Basics</div><div class="curric-sub">How to organize your ads so they actually perform</div></div></li>
             <li><span class="curric-icon">✍️</span><div><div class="curric-title">Ad Creatives &amp; Copywriting</div><div class="curric-sub">Writing and designing ads that make people want to buy</div></div></li>
+            <li><span class="curric-icon">🗂️</span><div><div class="curric-title">Content Strategy for Any Brand</div><div class="curric-sub">Planning content that works whatever niche you're in</div></div></li>
             <li><span class="curric-icon">🚀</span><div><div class="curric-title">Landing Page &amp; Funnel Optimization</div><div class="curric-sub">Fixing your page so visitors actually turn into buyers</div></div></li>
           </ul>
         </div>
@@ -815,8 +818,8 @@
       </div>
       <div class="curric-card shop">
         <div class="c-head"><div class="c-icon navy">SH</div><h3>Shopify Store — Step by Step</h3></div>
-        <div class="curric-count">🔥 11 Modules</div>
-        <div class="curric-secret"><span class="cs-icon">🔐</span>Includes secret ecommerce strategies you will not find anywhere else</div>
+        <div class="curric-count">🔥 13 Modules</div>
+        <div class="curric-secret"><span class="cs-icon">🔓</span>Unlock ecommerce secret strategies, nobody else teaches</div>
 
         <div class="curric-group">
           <div class="curric-group-label">Setup &amp; Sourcing</div>
@@ -833,6 +836,7 @@
           <ul class="curric-list">
             <li><span class="curric-icon">🏷️</span><div><div class="curric-title">Product Listings &amp; Pricing</div><div class="curric-sub">Writing descriptions and setting prices that sell</div></div></li>
             <li><span class="curric-icon">💳</span><div><div class="curric-title">Payment &amp; Shipping Setup</div><div class="curric-sub">Letting customers pay you and get their orders delivered</div></div></li>
+            <li><span class="curric-icon">🛵</span><div><div class="curric-title">COD &amp; Local Payment Setup</div><div class="curric-sub">Setting up Cash on Delivery and local payments the right way</div></div></li>
             <li><span class="curric-icon">📋</span><div><div class="curric-title">Order Management</div><div class="curric-sub">Handling orders after someone buys from you</div></div></li>
           </ul>
         </div>
@@ -841,6 +845,7 @@
           <div class="curric-group-label">Grow &amp; Optimize</div>
           <ul class="curric-list">
             <li><span class="curric-icon">🧩</span><div><div class="curric-title">Apps &amp; Optimization</div><div class="curric-sub">Adding tools that make your store work better</div></div></li>
+            <li><span class="curric-icon">📧</span><div><div class="curric-title">Abandoned Cart Recovery &amp; Email Marketing</div><div class="curric-sub">Bringing back visitors who almost bought and didn't</div></div></li>
             <li><span class="curric-icon">💬</span><div><div class="curric-title">Customer Service &amp; Returns</div><div class="curric-sub">Handling customer questions, complaints, and refunds</div></div></li>
             <li><span class="curric-icon">📈</span><div><div class="curric-title">Upsells &amp; Increasing Order Value</div><div class="curric-sub">Getting customers to spend a little more per order</div></div></li>
             <li><span class="curric-icon">🔗</span><div><div class="curric-title">Connect Store to Ads</div><div class="curric-sub">Linking your store and ads so they work together</div></div></li>
