@@ -234,27 +234,25 @@
   .trust-item .lbl{ font-size:11.5px; color:var(--muted-2); }
   .trust-item > div{ display:flex; flex-direction:column; }
 
-  /* ===== MOBILE: trust-row + urgency-strip → full-width clean rows ===== */
+  /* ===== MOBILE: trust-row + urgency-strip → same light style, 2-column layout ===== */
   @media(max-width:680px){
-    .trust-row, .urgency-strip{
-      display:flex; flex-direction:column; gap:8px; background:none; border:none; padding:0;
+    .trust-row{ grid-template-columns:1fr 1fr; gap:10px; }
+    .trust-item:nth-child(3){
+      grid-column:1 / 3; flex-direction:column; justify-content:center; gap:4px;
+      background:linear-gradient(135deg, rgba(255,90,54,0.14), rgba(255,138,110,0.06));
+      border:1.5px solid rgba(255,90,54,0.3); padding:10px 12px;
     }
-    .urgency-strip{ margin-top:14px; }
+    .trust-item:nth-child(3) > div{ flex-direction:column; align-items:center; gap:2px; }
+    .trust-item:nth-child(3) .num{ color:var(--coral-dim); }
+    .trust-item:nth-child(3) .lbl{ color:var(--ink); font-weight:600; }
+    .trust-item:nth-child(3) .ti-icon{ background:#fff; box-shadow:0 6px 14px rgba(255,90,54,0.2); }
+    .trust-item{ padding:12px; }
+    .trust-item .ti-icon{ width:30px; height:30px; font-size:14px; }
+    .trust-item .num{ font-size:16px; }
+    .trust-item .lbl{ font-size:11.5px; }
 
-    .trust-item{
-      width:100%; flex-direction:row; align-items:center; gap:12px; background:var(--bg-2);
-      border:1px solid var(--line); border-radius:12px; padding:12px 16px;
-    }
-    .trust-item .ti-icon{ width:30px; height:30px; border-radius:50%; font-size:14px; flex-shrink:0; }
-    .trust-item > div{ flex-direction:row; align-items:baseline; gap:6px; }
-    .trust-item .num{ font-size:15px; }
-    .trust-item .lbl{ font-size:12.5px; color:var(--muted); }
-
-    .urgency-strip .u-item{
-      width:100%; background:#fff; border:1px solid rgba(255,90,54,0.25); border-radius:12px;
-      padding:12px 16px; font-size:13px; gap:12px;
-    }
-    .urgency-strip .u-icon{ width:26px; height:26px; font-size:12px; flex-shrink:0; }
+    .urgency-strip{ padding:14px 16px; gap:10px 16px; justify-content:center; }
+    .urgency-strip .u-item{ font-size:12.5px; }
   }
 
   /* Signature: two stacked tilted cards */
