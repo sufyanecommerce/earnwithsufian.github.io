@@ -787,6 +787,10 @@
     transform:translateX(-100%); animation:seatsShine 2.6s ease-in-out infinite;
   }
   @keyframes seatsShine{ 0%{ transform:translateX(-100%); } 60%,100%{ transform:translateX(180%); } }
+  @media(max-width:780px){
+    .seats-bar{ margin:0 auto 40px; }
+    .seats-bar .s-top{ flex-direction:column; justify-content:center; text-align:center; }
+  }
   @media(max-width:480px){
     .seats-bar{ padding:16px 18px; }
     .seats-bar .s-top{ font-size:11.5px; }
